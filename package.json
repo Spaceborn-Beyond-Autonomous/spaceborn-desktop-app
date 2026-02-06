@@ -1,0 +1,41 @@
+{
+  "name": "spaceborn-desktop",
+  "version": "1.0.0",
+  "description": "Spaceborn Control Center – Beyond Autonomous",
+  "author": "Spaceborn",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win nsis --x64"
+  },
+  "build": {
+    "appId": "com.spaceborn.controlcenter",
+    "productName": "Spaceborn",
+    "copyright": "Copyright © 2026 Spaceborn",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*.{md,ts,map}",
+      "!**/*.log"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Spaceborn",
+      "runAfterFinish": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
